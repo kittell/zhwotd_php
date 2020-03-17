@@ -18,8 +18,11 @@ function social_cron() {
     
     // Match keys
     if ($cron_key_config == $cron_key_db) {
+        echo "cron_key matched";
         cron_twitter_post();
         cron_facebook_post();
+    } else {
+        echo "cron_key mismatch";
     }
     
     // TODO: write to log?
