@@ -127,15 +127,7 @@ function post_wotd_to_twitter($d) {
 
 
 /* MASTODON */
-// https://framagit.org/MaxKoder/TootoPHP/-/blob/master/1-register_app.php
-$tootoPHP = new TootoPHP\TootoPHP('universeodon.com');
 
-$app = $tootoPHP->registerApp('TootoPHP', 'http://max-koder.fr');
-if ( $app === false) {
-    throw new Exception('Problem during register app');
-}
-
-echo $app->getAuthUrl();
 
 
 
