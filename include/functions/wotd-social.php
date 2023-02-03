@@ -6,6 +6,7 @@ require_once('wotd-formatting.php');
 require_once('queries.php');
 require_once(LIBRARIES_DIR.'/TwitterAPIExchange.php');
 require_once(LIBRARIES_DIR.'/php-graph-sdk-5.x/src/Facebook/autoload.php');
+require_once(LIBRARIES_DIR.'/TootoPHP/autoload.php');
 
 /* FORMATTING */
 
@@ -123,6 +124,20 @@ function post_wotd_to_twitter($d) {
     
     return $response;
 }
+
+
+/* MASTODON */
+// https://framagit.org/MaxKoder/TootoPHP/-/blob/master/1-register_app.php
+$tootoPHP = new TootoPHP\TootoPHP('universeodon.com');
+
+$app = $tootoPHP->registerApp('TootoPHP', 'http://max-koder.fr');
+if ( $app === false) {
+    throw new Exception('Problem during register app');
+}
+
+echo $app->getAuthUrl();
+
+
 
 /* QUERIES */
 
